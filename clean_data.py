@@ -7,13 +7,11 @@ import unicodedata
 from rapidfuzz import process, fuzz
 
 def normalize_title(title):
-    # Lowercase and strip symbols
-    title = unicodedata.normalize("NFKD", title).lower()
-    title = re.sub(r'[^\w\s]', '', title)
-    title = re.sub(r'\b(season|part|movie|final|ova|tv|special|recap|extra|arc|prologue|epilogue|kanketsu|hen|kouhen|zenpen|shou|ban)\b', '', title)
-    title = re.sub(r'\b(1st|2nd|3rd|4th|5th|ii|iii|iv|v|vi|vii|viii|ix|x|s\d+)\b', '', title)
-    title = re.sub(r'\d+', '', title)
-    title = re.sub(r'\s+', ' ', title)
+    """Return a simplified version of *title* for fuzzy matching."""
+    title = unicodedata.normalize("NFKD", title)
+    title = title.lower()
+    title = re.sub(r"[\W_]+", " ", title)
+    title = re.sub(r"\s+", " ", title)
     return title.strip()
 
 def fuzzy_group_titles(df, threshold=90):
@@ -75,6 +73,7 @@ def fetch_wikipedia_themes(title):
 
 def clean_anime_data(input_csv, output_csv):
     df = pd.read_csv(input_csv)
+    df = df.drop_duplicates(subset="title", keep="first")
 
     print(f"📊 Original dataset size: {len(df)}")
 
