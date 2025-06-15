@@ -6,6 +6,15 @@ import re
 import unicodedata
 from rapidfuzz import process, fuzz
 
+
+def base_title(title: str) -> str:
+    """Return *title* normalized and stripped of season/part indicators."""
+    title = normalize_title(title)
+    # remove patterns like "season 2" or "part 1"
+    title = re.sub(r"\b(?:season|part)\s*(?:\d+|[ivx]+)(?:st|nd|rd|th)?\b", "", title)
+    title = re.sub(r"\b(?:s|p)\d+\b", "", title)
+    return re.sub(r"\s+", " ", title).strip()
+
 def normalize_title(title):
     """Return a simplified version of *title* for fuzzy matching."""
     title = unicodedata.normalize("NFKD", title)
@@ -14,8 +23,8 @@ def normalize_title(title):
     title = re.sub(r"\s+", " ", title)
     return title.strip()
 
-def fuzzy_group_titles(df, threshold=90):
-    titles = df["normalized_title"].tolist()
+def fuzzy_group_titles(df, column="normalized_title", threshold=90):
+    titles = df[column].tolist()
     used = set()
     title_to_group = {}
 
@@ -28,7 +37,7 @@ def fuzzy_group_titles(df, threshold=90):
                 title_to_group[match_title] = base
                 used.add(match_title)
 
-    df["fuzzy_group"] = df["normalized_title"].map(title_to_group)
+    df["fuzzy_group"] = df[column].map(title_to_group)
     return df
 
 def fetch_wikipedia_composer(title):
@@ -77,9 +86,10 @@ def clean_anime_data(input_csv, output_csv):
 
     print(f"📊 Original dataset size: {len(df)}")
 
-    # Normalize and fuzzy group
+    # Normalize titles and derive base titles for deduplication
     df["normalized_title"] = df["title"].apply(normalize_title)
-    df = fuzzy_group_titles(df)
+    df["base_title"] = df["title"].apply(base_title)
+    df = fuzzy_group_titles(df, column="base_title")
 
     before_dedup = len(df)
     df = df.sort_values("score", ascending=False)
@@ -102,7 +112,7 @@ def clean_anime_data(input_csv, output_csv):
                 df.at[idx, "themes"] = themes
                 print(f"   🎭 Themes enriched: {themes}")
 
-    df = df.drop(columns=["normalized_title", "fuzzy_group"])
+    df = df.drop(columns=["normalized_title", "base_title", "fuzzy_group"])
     df.to_csv(output_csv, index=False)
     print(f"\n✅ Cleaned data saved to {output_csv}")
 
