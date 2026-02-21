@@ -33,7 +33,7 @@ def fetch_top_anime(pages=10):
     return anime_list
 
 # 🔄 Fetch anime and convert to DataFrame
-anime_data = fetch_top_anime(pages=20)  # change to 50–100 later
+anime_data = fetch_top_anime(pages=80)  # ~2000 anime (25 per page)
 df = pd.DataFrame(anime_data)
 
 # 💾 Save as CSV
