@@ -470,7 +470,7 @@ st.caption("Your next anime recommendation based on what you like!")
 
 with st.sidebar:
     st.header("Data")
-    csv_path = st.text_input("Path to clean CSV", value="/Users/atyantjain/Desktop/Personal Projects/Anime_Recommendation/anime_with_mal_artwork.csv")
+    csv_path = st.text_input("Path to clean CSV", value="/Users/atyantjain/Desktop/Personal Projects/Anime_Recommendation/anime_complete.csv")
     st.caption("Put your CSV in the same folder as app.py (or provide a full path).")
 
     st.header("Recommendation Settings")
