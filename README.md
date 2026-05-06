@@ -56,14 +56,14 @@ pip install -r requirements.txt
 Run the data cleaning script to preprocess the raw anime data:
 
 ```bash
-python clean_data.py
+python scripts/clean_data.py
 ```
 
 This script performs the following operations:
 - Normalizes anime titles for consistency
 - Removes exact duplicate rows based on title
 - Groups similar titles to avoid duplicates with slight variations
-- Generates a cleaned dataset: `cleaned_anime_data.csv`
+- Saves cleaned output to `data/cleaned_anime_data.csv`
 
 ### Input Data
 
@@ -76,27 +76,39 @@ Place your raw anime data in the `data/` directory. The expected format should i
 
 ## Usage
 
-### Getting Recommendations
-
-(Add specific usage instructions for your recommendation engine)
+### Run the Streamlit app
 
 ```bash
-python recommend.py --user_id <id> --num_recommendations <number>
+streamlit run app.py
 ```
+
+### Optional helper scripts
+
+- `python scripts/fetch_anime.py` — fetch top anime data from the Jikan API into `data/top_anime_data.csv`
+- `python scripts/add_artwork.py` — enrich your anime CSV with artwork URL data from MAL via Jikan
 
 ## Project Structure
 
 ```
 Anime_Recommendation/
-├── README.md                 # This file
-├── clean_data.py            # Data cleaning script
-├── recommend.py             # Main recommendation engine
-├── requirements.txt         # Project dependencies
-├── data/                    # Data directory
-│   └── anime_data.csv      # Raw anime data
-├── output/                  # Generated outputs
-│   └── cleaned_anime_data.csv
-└── src/                     # Source code modules
+├── README.md
+├── app.py
+├── requirements.txt
+├── .gitignore
+├── data/
+│   ├── anime_complete.csv
+│   ├── anime_data_with_manual_composers.csv
+│   ├── anime_with_mal_artwork.csv
+│   ├── cleaned_anime_data.csv
+│   └── top_anime_data.csv
+├── scripts/
+│   ├── add_artwork.py
+│   ├── clean_data.py
+│   └── fetch_anime.py
+├── assets/
+│   ├── dan.png
+│   ├── dandadan.gif
+│   └── title.jpg
 ```
 
 ## Technologies

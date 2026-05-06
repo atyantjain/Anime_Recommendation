@@ -37,6 +37,6 @@ anime_data = fetch_top_anime(pages=80)  # ~2000 anime (25 per page)
 df = pd.DataFrame(anime_data)
 
 # 💾 Save as CSV
-output_path = "top_anime_data.csv"
+output_path = Path(__file__).resolve().parent.parent / "data" / "top_anime_data.csv"
 df.to_csv(output_path, index=False, encoding="utf-8")
 print(f"✅ Saved to {output_path}")

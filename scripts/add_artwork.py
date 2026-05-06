@@ -1,9 +1,11 @@
+from pathlib import Path
 import time
 import pandas as pd
 import requests
 from difflib import SequenceMatcher
 
-FILENAME = "anime_with_mal_artwork.csv"      # single file to modify
+ROOT = Path(__file__).resolve().parent.parent
+FILENAME = ROOT / "data" / "anime_with_mal_artwork.csv"      # single file to modify
 
 JIKAN_SEARCH = "https://api.jikan.moe/v4/anime"
 SLEEP = 0.6  # be nice to the API
@@ -26,7 +28,9 @@ def main():
     # Check if file exists, if not create it from base CSV
     if not os.path.exists(FILENAME):
         # If the target file doesn't exist, try to load from a base file
-        base_files = ["cleaned_anime_data.csv", "anime_data_with_manual_composers.csv", "top_anime_data.csv"]
+        base_files = [ROOT / "data" / "cleaned_anime_data.csv",
+                      ROOT / "data" / "anime_data_with_manual_composers.csv",
+                      ROOT / "data" / "top_anime_data.csv"]
         df = None
         for base_file in base_files:
             if os.path.exists(base_file):

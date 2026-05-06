@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup
@@ -142,4 +144,7 @@ def clean_anime_data(input_csv, output_csv):
 
 
 if __name__ == "__main__":
-    clean_anime_data("top_anime_data.csv", "cleaned_anime_data.csv")
+    root = Path(__file__).resolve().parent.parent
+    raw_csv = root / "data" / "top_anime_data.csv"
+    cleaned_csv = root / "data" / "cleaned_anime_data.csv"
+    clean_anime_data(raw_csv, cleaned_csv)
