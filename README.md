@@ -1,4 +1,4 @@
-# 🎌 Anime Recommendation System
+# Anime Recommendation System
 
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue?style=flat-square&logo=python)](https://www.python.org/)
 [![Streamlit](https://img.shields.io/badge/Built%20with-Streamlit-red?style=flat-square)](https://streamlit.io/)
@@ -6,26 +6,26 @@
 
 > An intelligent anime recommendation engine that leverages detailed features to provide personalized recommendations based on user preferences and anime characteristics.
 
-## 🚀 Overview
+## Overview
 
 This project builds a comprehensive recommendation system for anime using machine learning techniques. The system analyzes detailed anime features including genres, ratings, popularity, and other metrics to suggest anime that match user interests.
 
 **Key Highlights:**
-- 🔍 Analyzes 1000+ anime with rich feature sets
-- 💡 Intelligent recommendation algorithms
-- 🎨 Beautiful web-based UI with Streamlit
-- ⚡ Fast data processing pipeline
+- Analyzes 1000+ anime with rich feature sets
+- Intelligent recommendation algorithms
+- Beautiful web-based UI with Streamlit
+- Fast data processing pipeline
 
-## ✨ Features
+## Features
 
-- 🧹 **Data Cleaning Pipeline**: Normalizes and deduplicates anime data from multiple sources
-- 🔧 **Feature Engineering**: Extracts and processes detailed anime characteristics  
-- 🤖 **Recommendation Engine**: Uses advanced algorithms to generate personalized suggestions
-- 🎯 **Flexible Filtering**: Supports filtering by genres, ratings, episode count, and more
-- 🌐 **API Integration**: Connects with Jikan API to fetch real-time anime data
-- 🖼️ **Artwork Enrichment**: Automatically fetches high-quality poster artwork
+- **Data Cleaning Pipeline**: Normalizes and deduplicates anime data from multiple sources
+- **Feature Engineering**: Extracts and processes detailed anime characteristics  
+- **Recommendation Engine**: Uses advanced algorithms to generate personalized suggestions
+- **Flexible Filtering**: Supports filtering by genres, ratings, episode count, and more
+- **API Integration**: Connects with Jikan API to fetch real-time anime data
+- **Artwork Enrichment**: Automatically fetches high-quality poster artwork
 
-## ⚡ Quick Start
+## Quick Start
 
 Get up and running in 3 steps:
 
@@ -42,9 +42,9 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-The app will be available at `http://localhost:8501` 🎉
+The app will be available at `http://localhost:8501`
 
-## 📊 Data Preparation
+## Data Preparation
 
 ### Cleaning Data
 
@@ -55,10 +55,10 @@ python scripts/clean_data.py
 ```
 
 **What it does:**
-- ✅ Normalizes anime titles for consistency
-- ✅ Removes exact duplicate rows based on title
-- ✅ Groups similar titles to avoid near-duplicates
-- ✅ Saves cleaned output to `data/cleaned_anime_data.csv`
+- Normalizes anime titles for consistency
+- Removes exact duplicate rows based on title
+- Groups similar titles to avoid near-duplicates
+- Saves cleaned output to `data/cleaned_anime_data.csv`
 
 ### Fetching Fresh Data
 
@@ -69,7 +69,7 @@ python scripts/fetch_anime.py        # Fetch top anime from Jikan API
 python scripts/add_artwork.py        # Enrich with poster artwork
 ```
 
-## 🎮 Usage
+## Usage
 
 ### Launch the Web App
 
@@ -87,31 +87,31 @@ Browse to `http://localhost:8501` and start exploring anime recommendations!
 | `scripts/fetch_anime.py` | Fetch top anime data from Jikan API |
 | `scripts/add_artwork.py` | Enrich CSV with poster artwork URLs |
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 Anime_Recommendation/
-├── 📄 README.md                           # Project documentation
-├── 🐍 app.py                              # Main Streamlit application
-├── 📦 requirements.txt                    # Python dependencies
-├── 📋 .gitignore                          # Git ignore rules
-├── 📁 data/                               # Datasets and preprocessed data
+├── README.md                           # Project documentation
+├── app.py                              # Main Streamlit application
+├── requirements.txt                    # Python dependencies
+├── .gitignore                          # Git ignore rules
+├── data/                               # Datasets and preprocessed data
 │   ├── anime_complete.csv                 # Complete anime dataset
 │   ├── anime_data_with_manual_composers.csv
 │   ├── anime_with_mal_artwork.csv         # Dataset with artwork URLs
 │   ├── cleaned_anime_data.csv             # Cleaned/deduplicated data
 │   └── top_anime_data.csv                 # Top anime from Jikan API
-├── 🛠️ scripts/                            # Utility scripts
+├── scripts/                            # Utility scripts
 │   ├── add_artwork.py                     # Fetch and add artwork
 │   ├── clean_data.py                      # Data cleaning pipeline
 │   └── fetch_anime.py                     # Fetch from Jikan API
-└── 🎨 assets/                             # Images and UI assets
+└── assets/                             # Images and UI assets
     ├── dan.png
     ├── dandadan.gif
     └── title.jpg
 ```
 
-## 🛠️ Technologies
+## Technologies
 
 - **Python** (90.9%) - Core language for data processing and ML
 - **C++** (4.6%) - Performance-critical operations
@@ -122,7 +122,7 @@ Anime_Recommendation/
 - **[numpy](https://numpy.org/)** - Numerical computing
 - **[Jikan API](https://jikan.moe/)** - Anime data source
 
-## 🤝 Contributing
+## Contributing
 
 We love contributions! Here's how to get involved:
 
@@ -133,26 +133,26 @@ We love contributions! Here's how to get involved:
 5. **Open** a Pull Request
 
 ### Ideas for Contributions
-- 🎯 Improve recommendation algorithms
-- 🐛 Bug fixes and optimizations
-- 📚 Documentation improvements
-- ✨ New features and enhancements
+- Improve recommendation algorithms
+- Bug fixes and optimizations
+- Documentation improvements
+- New features and enhancements
 
-## 📄 License
+## License
 
 This project is open source and available under the [MIT License](LICENSE). Feel free to use it in your projects!
 
-## 💬 Contact & Support
+## Contact & Support
 
-- 📧 Have questions? [Open an issue](https://github.com/atyantjain/Anime_Recommendation/issues)
-- 💡 Have suggestions? [Start a discussion](https://github.com/atyantjain/Anime_Recommendation/discussions)
-- ⭐ Found it useful? Please star the repository!
+- Have questions? [Open an issue](https://github.com/atyantjain/Anime_Recommendation/issues)
+- Have suggestions? [Start a discussion](https://github.com/atyantjain/Anime_Recommendation/discussions)
+- Found it useful? Please star the repository!
 
 ---
 
 <div align="center">
 
-**Made with ❤️ by [Atyant Jain](https://github.com/atyantjain)**
+**Made by [Atyant Jain](https://github.com/atyantjain)**
 
 Last Updated: May 2026 | v1.0.0
 
